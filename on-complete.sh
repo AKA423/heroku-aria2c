@@ -1,8 +1,8 @@
 #!/bin/bash
 
-FILE_PATH=$3                                   # Aria2传递给脚本的文件路径。BT下载有多个文件时该值为文件夹内第一个文件，如/root/Download/a/b/1.mp4
-RELATIVE_PATH=${FILE_PATH#${DOWNLOAD_PATH}/}   # 路径转换，去掉开头的下载路径。
-TOP_PATH=${DOWNLOAD_PATH}/${RELATIVE_PATH%%/*} # 路径转换，BT下载文件夹时为顶层文件夹路径，普通单文件下载时与文件路径相同。
+filePath=$3
+relativePath=${filepath#./downloads/}
+topPath=./downloads/${relativePath%%/*} # It will be the path of folder when it has multiple files, otherwise it will be the same as file path.
 
 LIGHT_GREEN_FONT_PREFIX="\033[1;32m"
 FONT_COLOR_SUFFIX="\033[0m"
